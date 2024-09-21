@@ -29,7 +29,7 @@ jobs:
       - name: Test
         run: |
           mkdir -p .qodana/code-coverage
-          go test commands/... --coverprofile .qodana/code-coverage/coverage.out
+          go test cache/... --coverprofile .qodana/code-coverage/coverage.out
 
       - name: Archive coverage data
         uses: actions/upload-artifact@v4
