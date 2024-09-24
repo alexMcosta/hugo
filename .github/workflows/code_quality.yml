@@ -16,20 +16,20 @@ jobs:
       pull-requests: write
       checks: write
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v3
         with:
           ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
           fetch-depth: 0  # a full history is required for pull request analysis
           
       - name: Set up Go
-        uses: actions/setup-go@v5
+        uses: actions/setup-go@v4
         with:
           go-version: '1.23.1'
 
       - name: Test
         run: |
           mkdir -p .qodana/code-coverage
-          go test cache/... --coverprofile .qodana/code-coverage/coverage.out
+          go test ../... --coverprofile .qodana/code-coverage/coverage.out
 
       - name: Archive coverage data
         if: always()
