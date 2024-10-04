@@ -149,6 +149,7 @@ func (f *Finder) checkMaxDepth(sid *searchID, level int) FinderResult {
 	return -1
 }
 
+// Meow
 func (f *Finder) checkManager(sid *searchID, m Manager, level int) FinderResult {
 	if r := f.checkMaxDepth(sid, level); r >= 0 {
 		return r
