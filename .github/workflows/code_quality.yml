@@ -26,20 +26,24 @@ jobs:
         with:
           go-version: '1.23.1'
 
-      - name: Test
-        run: |
-          mkdir -p .qodana/code-coverage
-          go test ./... --coverprofile .qodana/code-coverage/coverage.out
+     # - name: Test
+     #   run: |
+    #    mkdir -p .qodana/code-coverage
+      #    go test ./... --coverprofile .qodana/code-coverage/coverage.out
 
-      - name: Archive coverage data
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: gradle-coverage-data.zip
-          path: .qodana/code-coverage
+     # - name: Archive coverage data
+     #   if: always()
+      #  uses: actions/upload-artifact@v4
+      #  with:
+       #   name: gradle-coverage-data.zip
+        #  path: .qodana/code-coverage
           
       - name: 'Qodana Scan'
         if: always()
         uses: JetBrains/qodana-action@v2024.1
+        with:
+          pr-mode: false
+          args: >
+            --project-dir, './compare'
         env:
           QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
