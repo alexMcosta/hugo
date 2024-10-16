@@ -44,6 +44,6 @@ jobs:
         with:
           pr-mode: false
           args: >
-            --project-dir, './compare'
+            --source-directory, './compare'
         env:
           QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
