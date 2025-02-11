@@ -17,7 +17,7 @@ steps:
       restoreKeys: |
         "$(Build.Repository.Name)" | "$(Build.SourceBranchName)"
         "$(Build.Repository.Name)"
-  - task: QodanaScan@2024.3
+  - task: QodanaScan@2024
     env:
       QODANA_TOKEN: $(QODANA_TOKEN)
       QODANA_ENDPOINT: 'https://qodana.cloud'
