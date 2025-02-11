@@ -22,3 +22,4 @@ func Hello(name string, language string) string {
 }
 
 // Adding a comment here to test PRMode
+//and another one because I am not actually making pull requests... been a long day
